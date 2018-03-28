@@ -1,0 +1,13 @@
+@import "~@angular/material/theming";
+
+div {
+  @include mat-elevation(4);
+  padding: 16px;
+  height: 56px;
+  background-color: white;
+  input {
+    border: none;
+    outline: none;
+    margin-left: 16px;
+  }
+}

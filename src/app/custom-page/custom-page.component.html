@@ -1,0 +1,18 @@
+<pg-centered-page fxFill>
+  <div header fxFill fxLayout="row" fxLayoutAlign="center center">
+    <span>Title1</span>
+    <span fxFlex="1 1 auto"></span>
+    <pg-search-bar fxFlex="1 0 auto"></pg-search-bar>
+  </div>
+  <pg-list-detail-view #view fxFill fxFlex="1 1 auto" content [list]="[{n:1},{n:2},{n:3}]">
+    <div left-toolbar>
+      <pg-bookmarks></pg-bookmarks>
+    </div>
+    <ng-template #listContentTemplate let-item>
+      <button mat-button fxFill [routerLink]="['/','detail',item.n]">a{{item.n}}</button>
+    </ng-template>
+    <div right-toolbar>
+
+    </div>
+  </pg-list-detail-view>
+</pg-centered-page>

@@ -1,0 +1,11 @@
+@import "admin-layout/admin-layout.component";
+@import "centered-page/centered-page.component";
+@import "splashscreen/splashscreen.style";
+@import "widget-board/widget-board.component";
+
+@mixin pg-theme($theme) {
+  @include admin-layout-theme($theme);
+  @include centered-page-theme($theme);
+  @include widget-board-theme($theme);
+  @include splashScreen(mat-color(map-get($theme, primary), 900));
+}

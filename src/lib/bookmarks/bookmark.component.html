@@ -1,0 +1,16 @@
+<mat-menu #bookmarkMenu>
+  <button mat-menu-item *ngFor="let bookmark of bookmarks" (click)="navigateTo(bookmark.path)">
+    {{bookmark.name}}
+  </button>
+  <mat-divider></mat-divider>
+  <div fxFlex="1 1 auto" class="add-new">
+    <mat-form-field floatLabel="always" (click)="$event.stopPropagation()">
+      <input #newMarkName matInput placeholder="Name">
+      <mat-icon (click)="addCurrent(newMarkName.value)" matSuffix>add</mat-icon>
+    </mat-form-field>
+  </div>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="bookmarkMenu" fxFlex="1 1 auto">
+  <mat-icon>star</mat-icon><span>Bookmarks</span>
+</button>

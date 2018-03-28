@@ -1,0 +1,7 @@
+<div fxLayout="row" fxFlex="1 1 auto" fxLayoutAlign="center center" class="mat-typography">
+  <mat-icon fxFlex="0 0 auto">search</mat-icon>
+  <input title="search" #inputField class="mat-typography" (input)="onChange()" fxFlex="1 1 auto"/>
+  <button [style.opacity]="value?1:0" fxFlex="0 0 auto" mat-icon-button (click)="clearInput()">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>

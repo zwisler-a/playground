@@ -1,0 +1,23 @@
+@import "~@angular/material/theming";
+
+@mixin widget-board-theme($theme) {
+  $primary: map-get($theme, primary);
+  $foreground: map-get($theme, foreground);
+  button.edit-button {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    right: 10px;
+    bottom: 10px;
+    background-color: mat-color($primary, 900);
+    color: mat-color($primary, 50);
+    @include mat-elevation(6);
+  }
+}
+
+.scroll-container {
+  overflow: auto;
+}
+
+
+

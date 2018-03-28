@@ -1,0 +1,10 @@
+<div fxFill fxLayout="column">
+  <div id="header">
+    <div id="content" class="mat-typography">
+      <ng-content select="[header]"></ng-content>
+    </div>
+  </div>
+  <div class="page mat-typography" fxFlex="1 1 auto" fxLayout="column" >
+    <ng-content select="[content]"></ng-content>
+  </div>
+</div>

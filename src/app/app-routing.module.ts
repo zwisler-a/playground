@@ -1,11 +1,28 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminLayoutComponent} from "./admin-layout/admin-layout.component";
+import {AdminLayoutComponent, WidgetBoardComponent} from "../lib";
+import {CustomPageComponent} from "./custom-page/custom-page.component";
+import {ListDetailViewComponent} from "./list-detail-view/list-detail-view.component";
+import {CustomWidgetComponent} from "./custom-widget/custom-widget.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: AdminLayoutComponent
+    component: AdminLayoutComponent,
+    children: [{
+      path: '',
+      component: CustomPageComponent,
+      children: [{
+        path: '',
+        component: CustomWidgetComponent,
+      }, {
+        path: 'detail/:itemId',
+        component: ListDetailViewComponent
+      }]
+    }, {
+      path: 'grid',
+      component: WidgetBoardComponent
+    }]
   }
 ];
 
@@ -13,4 +30,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
