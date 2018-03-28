@@ -1,0 +1,20 @@
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+
+
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+    - npm run deploy -- $FTP_USER $FTP_PASSWORD $FTP_HOST
+  artifacts:
+    paths:
+    - dist
