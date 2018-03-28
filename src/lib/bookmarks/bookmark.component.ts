@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Bookmark} from "./bookmark.interface";
 
+/**
+ * Simple component to remember a certain page
+ * TODO: Remove bookmarks
+ */
 @Component({
   selector: 'pg-bookmarks',
   templateUrl: './bookmark.component.html',

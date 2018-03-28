@@ -5,6 +5,9 @@ import {NavigationModelItem} from "../services/navigation-model.interface";
 import {NavigationService} from "../services/navigation.service";
 import {SideNavService} from "../services/side-nav.service";
 
+/**
+ * Displays the navigation for the admin layout
+ */
 @Component({
   selector: 'app-left-sidenav',
   templateUrl: './left-sidenav.component.html',

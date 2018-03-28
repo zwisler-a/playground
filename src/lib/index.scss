@@ -3,9 +3,11 @@
 @import "splashscreen/splashscreen.style";
 @import "widget-board/widget-board.component";
 @import "carousel/carousel.component";
+@import "list-layout/list-layout.component";
 
 @mixin pg-theme($theme) {
   @include admin-layout-theme($theme);
+  @include list-layout-theme($theme);
   @include centered-page-theme($theme);
   @include widget-board-theme($theme);
   @include carousel-theme($theme);

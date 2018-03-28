@@ -1,38 +1,46 @@
 @mixin splashScreen($spinner-color) {
 
-  body > .loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    transform: translate(-50%, -50%);
-    &:before {
-      content: '';
-      display: block;
-      padding-top: 100%;
-    }
-    .circular {
-      animation: rotate 2s linear infinite;
-      height: 100%;
-      transform-origin: center center;
-      width: 100%;
+  body > .splash {
+    position: fixed;
+    z-index: 50000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    .loader {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      transform: translate(-50%, -50%);
+      &:before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+      .circular {
+        animation: rotate 2s linear infinite;
+        height: 100%;
+        transform-origin: center center;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
 
-    .path {
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
-      animation: dash 1.5s ease-in-out infinite;
-      stroke: $spinner-color;
-      stroke-linecap: round;
+      .path {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+        animation: dash 1.5s ease-in-out infinite;
+        stroke: $spinner-color;
+        stroke-linecap: round;
+      }
     }
-
   }
 
   @keyframes rotate {

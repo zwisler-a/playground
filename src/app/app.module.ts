@@ -7,7 +7,8 @@ import {AppComponent} from './app.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatButtonModule, MatIconModule, MatToolbarModule} from "@angular/material";
 import {
-  AdminLayoutModule, BookmarkModule, CenteredPageModule, ListDetailViewModule, NavigationService, SearchBarModule,
+  AdminLayoutModule, BookmarkModule, CenteredPageModule, ListDetailViewModule, ListLayoutModule, NavigationService,
+  SearchBarModule,
   SplashscreenModule, SplashscreenService, WidgetBoardModule
 } from "../lib";
 import {CustomPageComponent} from './custom-page/custom-page.component';
@@ -32,6 +33,7 @@ import {CustomCarouselComponent} from './custom-carousel/custom-carousel.compone
     SearchBarModule,
     SplashscreenModule,
     WidgetBoardModule,
+    ListLayoutModule,
     CarouselModule,
     ListDetailViewModule,
     FlexLayoutModule,
@@ -62,9 +64,12 @@ export class AppModule {
           name: 'Carousel',
           path: '/carousel',
           icon: 'menu'
+        }, {
+          name: 'List',
+          path: '/list',
+          icon: 'menu'
         }
       ]);
-
     this.splash.hide();
   }
 }

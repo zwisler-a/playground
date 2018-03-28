@@ -12,11 +12,13 @@ export class SplashscreenService {
 
   constructor() {
     this.ssDiv = document.createElement('div');
-    this.ssDiv.setAttribute('class', 'loader');
+    this.ssDiv.setAttribute('class', 'splash');
     this.ssDiv.innerHTML = `
-      <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-      </svg>`;
+      <div class="loader">
+       <svg class="circular" viewBox="25 25 50 50">
+         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+       </svg>
+      </div>`;
     this.show();
   }
 

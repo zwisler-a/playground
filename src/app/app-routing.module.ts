@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminLayoutComponent, WidgetBoardComponent} from "../lib";
+import {AdminLayoutComponent, ListLayoutComponent, WidgetBoardComponent} from "../lib";
 import {CustomPageComponent} from "./custom-page/custom-page.component";
 import {ListDetailViewComponent} from "./list-detail-view/list-detail-view.component";
 import {CustomWidgetComponent} from "./custom-widget/custom-widget.component";
@@ -25,6 +25,22 @@ const routes: Routes = [
       component: WidgetBoardComponent
     }, {
       path: 'carousel',
+      component: CustomCarouselComponent
+    }]
+  }, {
+    path: 'list',
+    component: ListLayoutComponent,
+    children: [{
+      path: '',
+      component: CustomCarouselComponent
+    }, {
+      path: '',
+      component: CustomCarouselComponent
+    }, {
+      path: '',
+      component: CustomCarouselComponent
+    }, {
+      path: '',
       component: CustomCarouselComponent
     }]
   }

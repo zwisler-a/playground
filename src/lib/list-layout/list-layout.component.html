@@ -1,0 +1,24 @@
+<div fxFill fxFlexFill fxLayout="column">
+
+  <div class="navigation" [ngClass]="{opacity:navColorOverwrite}" fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="1 1 auto">Logo</div>
+    <div fxFlex="1 1 auto" (click)="closeMenu()"
+         class="nav-item-list-drawer" [@navItemListState]="navItemListState">
+      <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="end stretch"
+           fxLayout.xs="column" class="nav-item-list">
+        <button fxFlex="0 0 auto" mat-button [routerLink]="'/'">Home</button>
+        <button fxFlex="0 0 auto" mat-button>Home</button>
+        <button fxFlex="0 0 auto" mat-button>Home</button>
+      </div>
+    </div>
+    <button fxHide.gt-sm (click)="expandMenu()" mat-icon-button fxFlex="0 0 auto">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div fxFlex="0 0 100vh">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div style="background: #000;" fxFlex="0 0 500vh"></div>
+</div>

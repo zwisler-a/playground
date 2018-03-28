@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {carouselAnimations} from './carousel.animation';
-import {CarouselSlide} from "./image-carousel-slide.interface";
+import {CarouselSlide} from "./carousel-slide.interface";
 
 
 @Component({

@@ -13,7 +13,7 @@
         <button fxHide.md fxHide.lg fxHide.xl mat-icon-button (click)="toggleSideNav()">
           <mat-icon>menu</mat-icon>
         </button>
-        <ng-content select="toolbar"></ng-content>
+        <ng-content select="[toolbar]"></ng-content>
       </mat-toolbar>
       <div fxFlex="0 0 calc(100% - 64px)" fxFlex.xs="0 0 calc(100% - 54px)">
         <router-outlet></router-outlet>

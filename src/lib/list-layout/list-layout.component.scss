@@ -1,0 +1,62 @@
+@import "~@angular/material/theming";
+
+@mixin list-layout-theme($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  .navigation {
+    height: 64px;
+    z-index: 500;
+    width: 100%;
+    transition: background-color 0.5s;
+    position: fixed;
+    color: mat-color($background, card);
+    &:not(.opacity) {
+      color: mat-color($foreground, base);
+      background-color: mat-color($background, card);
+      @include mat-elevation(2);
+
+      .nav-item-list {
+        @include mat-elevation(2);
+      }
+    }
+    top: 0;
+    left: 0;
+
+    .nav-item-list-drawer {
+      overflow: hidden;
+    }
+
+    .nav-item-list {
+      padding-right: 15px;
+    }
+
+    &.open .nav-item-list-drawer {
+      height: auto;
+    }
+    .nav-item-list {
+      height: 100%;
+    }
+
+    @media screen and (max-width: 960px) {
+      height: 54px;
+      .nav-item-list {
+        height: auto;
+      }
+      &:not(.opacity) .nav-item-list {
+        background-color: mat-color($background, card);
+      }
+      .nav-item-list-drawer {
+        position: fixed;
+        top: 54px;
+        height: 0px;
+        width: 100%;
+      }
+    }
+
+  }
+
+  .navigation-placeholder {
+    height: 64px;
+  }
+}
