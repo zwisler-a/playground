@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CenteredPageComponent } from './centered-page.component';
+import { CustomCarouselComponent } from './custom-carousel.component';
 
-describe('ParallaxImageComponent', () => {
-  let component: CenteredPageComponent;
-  let fixture: ComponentFixture<CenteredPageComponent>;
+describe('CustomCarouselComponent', () => {
+  let component: CustomCarouselComponent;
+  let fixture: ComponentFixture<CustomCarouselComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CenteredPageComponent ]
+      declarations: [ CustomCarouselComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CenteredPageComponent);
+    fixture = TestBed.createComponent(CustomCarouselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

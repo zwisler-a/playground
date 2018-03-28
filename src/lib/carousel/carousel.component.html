@@ -1,0 +1,29 @@
+<div id="image-container">
+
+  <div (click)="prevImage(true)" *ngIf="hasPrevious" class="control-arrow" id="previous">
+    <i class="material-icons">keyboard_arrow_left</i>
+  </div>
+  <div (click)="nextImage(true)" *ngIf="hasNext" class="control-arrow" id="next">
+    <i class="material-icons">keyboard_arrow_right</i>
+  </div>
+  <div *ngFor="let image of slides;let i = index">
+    <div id="text-container" class="mat-typography"
+         pgIsInView #inViewState="inView" [biDirectional]="true" [offset]="-10" [inPercent]="true"
+         [@text]="inViewState.inView?getTextState(i):'out'" *ngIf="image.text">
+      <h1 *ngIf="image.text.title">{{image.text.title}}</h1>
+      <span *ngIf="image.text.content">{{image.text.content}}</span>
+      <div>
+        <button (click)="action(image.actions.primary)" class="fancy-button primary" *ngIf="image.actions.primary">
+          {{image.actions.primary}}
+        </button>
+        <button (click)="action(image.actions.secondary)" class="fancy-button" *ngIf="image.actions.secondary">
+          {{image.actions.secondary}}
+        </button>
+      </div>
+    </div>
+    <div class="image"
+         [@imagePosition]="getImageState(i)"
+         [style.background-image]="'url('+image.imageUrl+')'"></div>
+  </div>
+
+</div>

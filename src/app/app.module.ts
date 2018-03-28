@@ -8,12 +8,13 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatButtonModule, MatIconModule, MatToolbarModule} from "@angular/material";
 import {
   AdminLayoutModule, BookmarkModule, CenteredPageModule, ListDetailViewModule, NavigationService, SearchBarModule,
-  SplashscreenModule,
-  SplashscreenService, WidgetBoardModule
+  SplashscreenModule, SplashscreenService, WidgetBoardModule
 } from "../lib";
 import {CustomPageComponent} from './custom-page/custom-page.component';
 import {ListDetailViewComponent} from './list-detail-view/list-detail-view.component';
-import { CustomWidgetComponent } from './custom-widget/custom-widget.component';
+import {CustomWidgetComponent} from './custom-widget/custom-widget.component';
+import {CarouselModule} from "../lib/carousel/carousel.module";
+import {CustomCarouselComponent} from './custom-carousel/custom-carousel.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CustomWidgetComponent } from './custom-widget/custom-widget.component';
     AppComponent,
     CustomWidgetComponent,
     CustomPageComponent,
-    ListDetailViewComponent
+    ListDetailViewComponent,
+    CustomCarouselComponent
   ],
   imports: [
     AdminLayoutModule,
@@ -30,6 +32,7 @@ import { CustomWidgetComponent } from './custom-widget/custom-widget.component';
     SearchBarModule,
     SplashscreenModule,
     WidgetBoardModule,
+    CarouselModule,
     ListDetailViewModule,
     FlexLayoutModule,
     MatToolbarModule,
@@ -48,12 +51,16 @@ export class AppModule {
       .navigationService
       .setModel([
         {
-          name: 'Dashboard',
+          name: 'Bsp. Page',
           path: '',
           icon: 'menu'
         }, {
           name: 'Grid',
           path: '/grid',
+          icon: 'menu'
+        }, {
+          name: 'Carousel',
+          path: '/carousel',
           icon: 'menu'
         }
       ]);

@@ -1,7 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs/Subscription";
 import {sidenavAdnimations, toggleButtonAnimations} from "../admin-layout.animations";
-import {NavigationModelItem, NavigationService, SideNavService} from "../../";
+import {NavigationModelItem} from "../services/navigation-model.interface";
+import {NavigationService} from "../services/navigation.service";
+import {SideNavService} from "../services/side-nav.service";
 
 @Component({
   selector: 'app-left-sidenav',

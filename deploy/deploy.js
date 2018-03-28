@@ -11,7 +11,7 @@ var config = {
 };
 
 ftpDeploy.deploy(config, function (err) {
-  if (err) console.log(err);
+  if (err) console.log(JSON.stringify(err));
   else console.log('finished');
 });
 

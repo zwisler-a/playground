@@ -4,6 +4,7 @@ import {AdminLayoutComponent, WidgetBoardComponent} from "../lib";
 import {CustomPageComponent} from "./custom-page/custom-page.component";
 import {ListDetailViewComponent} from "./list-detail-view/list-detail-view.component";
 import {CustomWidgetComponent} from "./custom-widget/custom-widget.component";
+import {CustomCarouselComponent} from "./custom-carousel/custom-carousel.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
     }, {
       path: 'grid',
       component: WidgetBoardComponent
+    }, {
+      path: 'carousel',
+      component: CustomCarouselComponent
     }]
   }
 ];
