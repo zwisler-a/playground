@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CenteredPageComponent } from './centered-page.component';
 
-describe('ParallaxImageComponent', () => {
+describe('CenteredPageComponent', () => {
   let component: CenteredPageComponent;
   let fixture: ComponentFixture<CenteredPageComponent>;
 

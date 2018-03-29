@@ -1,5 +1,4 @@
-import {Injectable} from '@angular/core';
-
+import { Injectable } from "@angular/core";
 
 /**
  * Needs splashscreen.style.scss to be included in the styles
@@ -11,8 +10,8 @@ export class SplashscreenService {
   private _displayed = false;
 
   constructor() {
-    this.ssDiv = document.createElement('div');
-    this.ssDiv.setAttribute('class', 'splash');
+    this.ssDiv = document.createElement("div");
+    this.ssDiv.setAttribute("class", "splash");
     this.ssDiv.innerHTML = `
       <div class="loader">
        <svg class="circular" viewBox="25 25 50 50">
@@ -21,7 +20,6 @@ export class SplashscreenService {
       </div>`;
     this.show();
   }
-
 
   public show() {
     if (!this._displayed) {
@@ -37,4 +35,7 @@ export class SplashscreenService {
     }
   }
 
+  get isDisplayed() {
+    return this._displayed;
+  }
 }

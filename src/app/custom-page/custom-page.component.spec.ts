@@ -1,17 +1,33 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CustomPageComponent } from './custom-page.component';
+import { CustomPageComponent } from "./custom-page.component";
+import {
+  CenteredPageModule,
+  SearchBarModule,
+  ListDetailViewModule,
+  BookmarkModule
+} from "../../lib";
+import { RouterModule } from "@angular/router";
+import { RouterTestingModule } from "@angular/router/testing";
 
-describe('CustomPageComponent', () => {
+describe("CustomPageComponent", () => {
   let component: CustomPageComponent;
   let fixture: ComponentFixture<CustomPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CustomPageComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          CenteredPageModule,
+          RouterTestingModule,
+          SearchBarModule,
+          ListDetailViewModule,
+          BookmarkModule
+        ],
+        declarations: [CustomPageComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CustomPageComponent);
@@ -19,7 +35,7 @@ describe('CustomPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

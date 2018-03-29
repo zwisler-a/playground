@@ -1,17 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SearchBarComponent } from './search-bar.component';
+import { SearchBarComponent } from "./search-bar.component";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatIconModule, MatButtonModule } from "@angular/material";
+import { SearchBarService } from "./search-bar.service";
 
-describe('SearchBarComponent', () => {
+describe("SearchBarComponent", () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SearchBarComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [FlexLayoutModule, MatIconModule, MatButtonModule],
+        providers: [SearchBarService],
+        declarations: [SearchBarComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SearchBarComponent);
@@ -19,7 +25,7 @@ describe('SearchBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

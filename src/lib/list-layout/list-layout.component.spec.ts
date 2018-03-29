@@ -1,17 +1,31 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ListLayoutComponent } from './list-layout.component';
+import { ListLayoutComponent } from "./list-layout.component";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { RouterTestingModule } from "@angular/router/testing";
+import { MatButtonModule, MatIconModule } from "@angular/material";
+import { NavigationService } from "./navigation.service";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-describe('ParallaxImageComponent', () => {
+describe("ListLayoutComponent", () => {
   let component: ListLayoutComponent;
   let fixture: ComponentFixture<ListLayoutComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ListLayoutComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          FlexLayoutModule,
+          RouterTestingModule,
+          MatButtonModule,
+          BrowserAnimationsModule,
+          MatIconModule
+        ],
+        providers: [NavigationService],
+        declarations: [ListLayoutComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListLayoutComponent);
@@ -19,7 +33,7 @@ describe('ParallaxImageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

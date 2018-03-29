@@ -12,4 +12,8 @@ describe('SplashscreenService', () => {
   it('should be created', inject([SplashscreenService], (service: SplashscreenService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should show on start', inject([SplashscreenService], (service: SplashscreenService) => {
+    expect(service.isDisplayed).toBeTruthy();
+  }));
 });
