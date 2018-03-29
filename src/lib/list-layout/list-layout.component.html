@@ -1,14 +1,12 @@
-<div fxFill fxFlexFill fxLayout="column">
+<div>
 
-  <div class="navigation" [ngClass]="{opacity:navColorOverwrite}" fxLayout="row" fxLayoutAlign="center center">
+  <div class="navigation" [ngClass]="{opaque:opaque,open:openMenu}" fxLayout="row" fxLayoutAlign="center center">
     <div fxFlex="1 1 auto">Logo</div>
-    <div fxFlex="1 1 auto" (click)="closeMenu()"
-         class="nav-item-list-drawer" [@navItemListState]="navItemListState">
-      <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="end stretch"
-           fxLayout.xs="column" class="nav-item-list">
-        <button fxFlex="0 0 auto" mat-button [routerLink]="'/'">Home</button>
-        <button fxFlex="0 0 auto" mat-button>Home</button>
-        <button fxFlex="0 0 auto" mat-button>Home</button>
+    <div fxLayout="row" fxLayout.sm="column" [style.height.px]="navListHeight" fxLayoutAlign="end stretch" fxLayout.xs="column"
+      class="nav-item-list">
+      <div class="ln-nav-item mat-typography" (click)="navigateTo(navItem)" fxLayoutAlign="start center" fxLayout="row" *ngFor="let navItem of navigation">
+        <mat-icon>{{navItem.icon}}</mat-icon>
+        <span>{{navItem.name}}</span>
       </div>
     </div>
     <button fxHide.gt-sm (click)="expandMenu()" mat-icon-button fxFlex="0 0 auto">
@@ -16,9 +14,5 @@
     </button>
   </div>
 
-  <div fxFlex="0 0 100vh">
-    <router-outlet></router-outlet>
-  </div>
-
-  <div style="background: #000;" fxFlex="0 0 500vh"></div>
+  <router-outlet></router-outlet>
 </div>

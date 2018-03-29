@@ -30,7 +30,7 @@ export let carouselAnimations = [
         transform: 'translate(0px,100px)',
         opacity: '0',
         // display: 'none'
-        'z-index':-1
+        'z-index': -1
       })),
       transition('in => out', animate('0.7s cubic-bezier(.5,.0,.5,1)')),
       transition('out => in', animate('0.7s cubic-bezier(.5,.0,.5,1)'))

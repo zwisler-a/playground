@@ -1,9 +1,6 @@
-<div fxFill fxLayout="column">
-  <mat-progress-bar *ngIf="loadingBar.xhrCallsOpen && loadingBar.observeXhr"
-                    [mode]="loadingBar.mode"
-                    [value]="loadingBar.value"
-                    style="position:absolute"
-                    color="accent"></mat-progress-bar>
+<div fxFill fxLayout="column" style="overflow:hidden;">
+  <mat-progress-bar *ngIf="loadingBar.xhrCallsOpen && loadingBar.observeXhr" [mode]="loadingBar.mode" [value]="loadingBar.value"
+    style="position:absolute" color="accent"></mat-progress-bar>
   <div fxLayout="row" fxFill>
     <div [@sideNavState]="sideNavState" class="sideNavContainer">
       <app-left-sidenav></app-left-sidenav>

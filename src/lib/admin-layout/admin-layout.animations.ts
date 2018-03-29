@@ -4,12 +4,15 @@ export const sidenavAdnimations: AnimationTriggerMetadata =
   trigger('sideNavState', [
     state('hidden', style({
       width: '0px',
+      'min-width': '0px'
     })),
     state('small', style({
       width: '70px',
+      'min-width': '70px'
     })),
     state('big', style({
-      width: '250px'
+      width: '250px',
+      'min-width': '250px'
     })),
     transition('small <=> big', animate('200ms ease-in')),
     transition('hidden <=> small', animate('200ms ease-in')),

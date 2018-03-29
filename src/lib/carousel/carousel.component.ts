@@ -1,33 +1,24 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {carouselAnimations} from './carousel.animation';
-import {CarouselSlide} from "./carousel-slide.interface";
-
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { carouselAnimations } from "./carousel.animation";
+import { CarouselSlide } from "./carousel-slide.interface";
 
 @Component({
-  selector: 'pg-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss'],
+  selector: "pg-carousel",
+  templateUrl: "./carousel.component.html",
+  styleUrls: ["./carousel.component.scss"],
   animations: carouselAnimations
 })
 export class CarouselComponent implements OnInit {
-
-  @Input()
-  public slides: CarouselSlide[] = [];
-  @Input()
-  private changeInterval = 15000;
+  @Input() public slides: CarouselSlide[] = [];
+  @Input() private changeInterval = 15000;
 
   private currentImage = 0;
 
-
   private intervalId;
 
-  @Output()
-  private onAction = new EventEmitter<string>();
+  @Output() private action = new EventEmitter<string>();
 
-
-  constructor() {
-
-  }
+  constructor() {}
 
   ngOnInit() {
     this.intervalId = setInterval(() => {
@@ -35,16 +26,19 @@ export class CarouselComponent implements OnInit {
     }, this.changeInterval);
   }
 
-
   nextImage(stopInterval?: boolean) {
-    if (stopInterval) clearInterval(this.intervalId);
+    if (stopInterval) {
+      clearInterval(this.intervalId);
+    }
     if (this.currentImage < this.slides.length - 1) {
       this.currentImage++;
     }
   }
 
   prevImage(stopInterval?: boolean) {
-    if (stopInterval) clearInterval(this.intervalId);
+    if (stopInterval) {
+      clearInterval(this.intervalId);
+    }
     if (this.currentImage > 0) {
       this.currentImage--;
     }
@@ -58,22 +52,21 @@ export class CarouselComponent implements OnInit {
     return this.currentImage !== 0;
   }
 
-  action(text: string) {
-    this.onAction.emit(text);
+  actionClicked(text: string) {
+    this.action.emit(text);
   }
 
   getImageState(index: number) {
     if (index === this.currentImage) {
-      return 'center';
+      return "center";
     } else if (index < this.currentImage) {
-      return 'left';
+      return "left";
     } else if (index > this.currentImage) {
-      return 'right';
+      return "right";
     }
   }
 
   getTextState(index: number) {
-    return index === this.currentImage ? 'in' : 'out';
+    return index === this.currentImage ? "in" : "out";
   }
-
 }

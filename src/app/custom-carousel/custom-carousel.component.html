@@ -1,4 +1,10 @@
-<div fxFill>
-  <pg-carousel
-    [slides]="[{text:{title:'hi',content:'bye'},actions:{primary:'1',secondary:'1'},imageUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mount_Wilhelm.jpg/1200px-Mount_Wilhelm.jpg'},{imageUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mount_Wilhelm.jpg/1200px-Mount_Wilhelm.jpg'},{imageUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mount_Wilhelm.jpg/1200px-Mount_Wilhelm.jpg'}]"></pg-carousel>
+<div fxLayout="column">
+  <div fxFlex="1 1 100vh">
+    <pg-carousel fxFlex="0 0 100%" [slides]="slides"></pg-carousel>
+  </div>
+  <div fxFlex="0 0 100vh" style="background-color:#00F" id="section1-jp"></div>
+  <div fxFlex="0 0 100vh" style="background-color:#000" id="section2-jp"></div>
+  <div fxFlex="0 0 100vh" style="background-color:#0FF" id="section3-jp"></div>
+  <div fxFlex="0 0 100vh" style="background-color:#0F0" id="section4-jp"></div>
+  <div fxFlex="0 0 100vh" style="background-color:#F0F" id="section5-jp"></div>
 </div>

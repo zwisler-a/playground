@@ -1,62 +1,60 @@
 @import "~@angular/material/theming";
-
 @mixin list-layout-theme($theme) {
-  $primary: map-get($theme, primary);
-  $background: map-get($theme, background);
-  $foreground: map-get($theme, foreground);
-  .navigation {
-    height: 64px;
-    z-index: 500;
-    width: 100%;
-    transition: background-color 0.5s;
-    position: fixed;
-    color: mat-color($background, card);
-    &:not(.opacity) {
-      color: mat-color($foreground, base);
-      background-color: mat-color($background, card);
-      @include mat-elevation(2);
-
-      .nav-item-list {
-        @include mat-elevation(2);
-      }
-    }
-    top: 0;
-    left: 0;
-
-    .nav-item-list-drawer {
-      overflow: hidden;
-    }
-
-    .nav-item-list {
-      padding-right: 15px;
-    }
-
-    &.open .nav-item-list-drawer {
-      height: auto;
-    }
-    .nav-item-list {
-      height: 100%;
-    }
-
-    @media screen and (max-width: 960px) {
-      height: 54px;
-      .nav-item-list {
-        height: auto;
-      }
-      &:not(.opacity) .nav-item-list {
-        background-color: mat-color($background, card);
-      }
-      .nav-item-list-drawer {
-        position: fixed;
-        top: 54px;
-        height: 0px;
+    $folingTime: 0.2s;
+    $primary: map-get($theme, primary);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    $accent: map-get($theme, accent);
+    .navigation {
+        height: 64px;
+        z-index: 500;
         width: 100%;
-      }
+        position: fixed;
+        transition: background-color $folingTime;
+        color: mat-color($background, card);
+        &.opaque {
+            &:not(.open) {
+                @include mat-elevation(2);
+            }
+            color: mat-color($foreground, base);
+            background-color: mat-color($background, card);
+        }
+        .nav-item-list {
+            padding: 0 15px;
+            height: 100%;
+            overflow: hidden;
+            transition-property: height, color, background-color;
+            transition-duration: $folingTime;
+        }
+        .ln-nav-item {
+            padding: 10px;
+            cursor: pointer;
+            span {
+                margin-left: 5px;
+            }
+            &:hover {
+                background-color: mat-color($primary, 50);
+                color: mat-color($accent, 700);
+            }
+        }
+        @media screen and (max-width: 960px) {
+            // small nav style
+            height: 54px;
+            .nav-item-list {
+                position: fixed;
+                left: 0;
+                height: 0px;
+                top: 54px;
+                width: 100%;
+                @include mat-elevation(2);
+                .ln-nav-item {
+                    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+                    height: 50px;
+                }
+            }
+            &.opaque .nav-item-list {
+                background-color: mat-color($background, card);
+            }
+        }
     }
-
-  }
-
-  .navigation-placeholder {
-    height: 64px;
-  }
 }
