@@ -2,9 +2,10 @@
   <mat-progress-bar *ngIf="loadingBar.xhrCallsOpen && loadingBar.observeXhr" [mode]="loadingBar.mode" [value]="loadingBar.value"
     style="position:absolute" color="accent"></mat-progress-bar>
   <div fxLayout="row" fxFill>
-    <div [@sideNavState]="sideNavState" class="sideNavContainer">
+    <div [@sideNavState]="sideNavState" class="sideNavContainer" [ngClass]="{pushOver:over}">
       <app-left-sidenav></app-left-sidenav>
     </div>
+    <div *ngIf="over && sideNavState=='big'" class="backdrop" (click)="toggleSideNav()"></div>
     <div fxFlex="1 1 auto" fxLayout="column">
       <mat-toolbar fxFlex="0 0 auto" color="primary">
         <button fxHide.md fxHide.lg fxHide.xl mat-icon-button (click)="toggleSideNav()">

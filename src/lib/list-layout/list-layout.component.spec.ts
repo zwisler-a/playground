@@ -4,8 +4,8 @@ import { ListLayoutComponent } from "./list-layout.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MatButtonModule, MatIconModule } from "@angular/material";
-import { NavigationService } from "./navigation.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NavigationService } from "./services/navigation.service";
 
 describe("ListLayoutComponent", () => {
   let component: ListLayoutComponent;

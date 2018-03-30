@@ -4,7 +4,9 @@ import { ListLayoutComponent } from "./list-layout.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterModule } from "@angular/router";
 import { MatButtonModule, MatIconModule } from "@angular/material";
-import { NavigationService } from "./navigation.service";
+import { NavigationService } from "./services/navigation.service";
+import { PageComponent } from "./page/page.component";
+import { FancyButtonModule } from "../fancy-button/public.api";
 
 @NgModule({
   imports: [
@@ -12,10 +14,11 @@ import { NavigationService } from "./navigation.service";
     FlexLayoutModule,
     RouterModule,
     MatButtonModule,
+    FancyButtonModule,
     MatIconModule
   ],
   providers: [NavigationService],
-  declarations: [ListLayoutComponent],
-  exports: [ListLayoutComponent]
+  declarations: [ListLayoutComponent, PageComponent],
+  exports: [ListLayoutComponent, PageComponent]
 })
 export class ListLayoutModule {}

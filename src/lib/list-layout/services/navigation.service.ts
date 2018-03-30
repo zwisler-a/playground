@@ -3,7 +3,7 @@ import { NavigationItem } from "./navigation.interface";
 
 @Injectable()
 export class NavigationService {
-  private _model: NavigationItem[];
+  private _model: NavigationItem[] = [];
 
   constructor() {}
 

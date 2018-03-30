@@ -3,6 +3,7 @@ import { sidenavAdnimations } from "./admin-layout.animations";
 import { SideNavService } from "./services/side-nav.service";
 import { LoadingBarService } from "./services/loading-bar.service";
 import { HttpClient } from "@angular/common/http";
+import { ObservableMedia } from "@angular/flex-layout";
 
 /**
  * Navigation Layout for an Admin/Dashboard sryle page.
@@ -21,6 +22,7 @@ export class AdminLayoutComponent implements OnInit {
   constructor(
     private sideNavService: SideNavService,
     private client: HttpClient,
+    private media: ObservableMedia,
     private loadingBarService: LoadingBarService
   ) {}
 
@@ -28,6 +30,10 @@ export class AdminLayoutComponent implements OnInit {
 
   get sideNavState() {
     return this.sideNavService.state;
+  }
+
+  get over() {
+    return !this.media.isActive("gt-sm");
   }
 
   toggleSideNav() {

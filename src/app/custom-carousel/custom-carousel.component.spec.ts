@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { CustomCarouselComponent } from "./custom-carousel.component";
-import { CarouselModule } from "../../lib";
+import { CarouselModule, ListLayoutModule } from "../../lib";
 
 describe("CustomCarouselComponent", () => {
   let component: CustomCarouselComponent;
@@ -10,7 +10,7 @@ describe("CustomCarouselComponent", () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [CarouselModule],
+        imports: [CarouselModule, ListLayoutModule],
         declarations: [CustomCarouselComponent]
       }).compileComponents();
     })

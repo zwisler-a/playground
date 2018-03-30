@@ -5,6 +5,7 @@ import { IsInViewModule } from "../is-in-view/is-in-view.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatIconModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FancyButtonModule } from "../fancy-button/public.api";
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     FlexLayoutModule,
     MatIconModule,
     IsInViewModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FancyButtonModule
   ],
   declarations: [CarouselComponent],
   exports: [CarouselComponent]

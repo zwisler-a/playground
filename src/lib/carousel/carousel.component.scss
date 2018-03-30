@@ -1,105 +1,79 @@
 @import "~@angular/material/theming";
 @mixin carousel-theme($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $foreground: map-get($theme, foreground);
-    $background: map-get($theme, background);
-    .control-arrow:hover {
-        opacity: 1;
-        color: mat-color($primary, 900);
-        transition: all 0.2s ease-in-out;
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  .control-arrow:hover {
+    opacity: 1;
+    color: mat-color($primary, 900);
+    transition: all 0.2s ease-in-out;
+  }
+  .control-arrow {
+    @include mat-elevation(2);
+    color: mat-color($foreground, base);
+    background-color: mat-color($background, card);
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0.7;
+    @media only screen and (max-width: 768px) {
+      width: 35px;
+      height: 35px;
     }
-    .control-arrow {
-        @include mat-elevation(2);
-        color: mat-color($foreground, base);
-        background-color: mat-color($background, card);
-        transform: translateY(-50%);
-        position: absolute;
-        z-index: 100;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        opacity: 0.7;
-        @media only screen and (max-width: 768px) {
-            width: 35px;
-            height: 35px;
-        }
-        i {
-            margin: auto;
-        }
+    i {
+      margin: auto;
     }
-    #previous {
-        top: 50%;
-        left: 0;
+  }
+  #previous {
+    top: 50%;
+    left: 0;
+  }
+  #next {
+    top: 50%;
+    right: 0;
+  }
+  .image {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  #text-container {
+    position: absolute;
+    top: 25%;
+    color: white;
+    left: 100px;
+    z-index: 101;
+    @media only screen and (max-width: 768px) {
+      left: 50px;
+      width: calc(100% - 100px);
+      h1 {
+        font-size: 25px !important;
+        font-weight: bold;
+      }
+      span {
+        font-size: 15px !important;
+      }
     }
-    #next {
-        top: 50%;
-        right: 0;
+    .action-container {
+      padding: 15px 0;
     }
-    .image {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
+    width: 50%;
+    min-width: 150px;
+    text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
+    h1 {
+      font-size: 35px;
+      font-weight: bold;
     }
-    #text-container {
-        position: absolute;
-        top: 25%;
-        color: white;
-        left: 100px;
-        z-index: 101;
-        @media only screen and (max-width: 768px) {
-            left: 50px;
-            width: calc(100% - 100px);
-            h1 {
-                font-size: 25px !important;
-                font-weight: bold;
-            }
-            span {
-                font-size: 15px !important;
-            }
-        }
-        width: 50%;
-        min-width: 150px;
-        text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
-        h1 {
-            font-size: 35px;
-            font-weight: bold;
-        }
-        span {
-            font-size: 25px;
-        }
-        .fancy-button {
-            display: inline-block;
-            margin-right: 15px;
-            font-size: 14px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0);
-            @include mat-elevation(2);
-            border-color: lightgray;
-            border-width: 1px;
-            line-height: 37px;
-            height: 40px;
-            margin-top: 15px;
-            padding: 0px 35px 0px 35px;
-            text-align: center;
-            cursor: pointer;
-            z-index: 5000;
-            transition: all 0.2s ease-in-out;
-        }
-        .fancy-button.primary {
-            background-color: mat-color($accent, 800);
-            border-color: rgba(0, 0, 0, 0);
-        }
-        .fancy-button.primary:hover {
-            background-color: mat-color($accent, 900);
-        }
-        .fancy-button:hover {
-            background-color: mat-color($accent, 900);
-            border-color: rgba(0, 0, 0, 0);
-            @include mat-elevation(0);
-        }
+    span {
+      font-size: 25px;
     }
+  }
 }

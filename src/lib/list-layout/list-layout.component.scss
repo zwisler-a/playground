@@ -1,60 +1,67 @@
 @import "~@angular/material/theming";
+@import "./page/page.component.scss";
+
 @mixin list-layout-theme($theme) {
-    $folingTime: 0.2s;
-    $primary: map-get($theme, primary);
-    $background: map-get($theme, background);
-    $foreground: map-get($theme, foreground);
-    $accent: map-get($theme, accent);
-    .navigation {
-        height: 64px;
-        z-index: 500;
-        width: 100%;
-        position: fixed;
-        transition: background-color $folingTime;
-        color: mat-color($background, card);
-        &.opaque {
-            &:not(.open) {
-                @include mat-elevation(2);
-            }
-            color: mat-color($foreground, base);
-            background-color: mat-color($background, card);
-        }
-        .nav-item-list {
-            padding: 0 15px;
-            height: 100%;
-            overflow: hidden;
-            transition-property: height, color, background-color;
-            transition-duration: $folingTime;
-        }
-        .ln-nav-item {
-            padding: 10px;
-            cursor: pointer;
-            span {
-                margin-left: 5px;
-            }
-            &:hover {
-                background-color: mat-color($primary, 50);
-                color: mat-color($accent, 700);
-            }
-        }
-        @media screen and (max-width: 960px) {
-            // small nav style
-            height: 54px;
-            .nav-item-list {
-                position: fixed;
-                left: 0;
-                height: 0px;
-                top: 54px;
-                width: 100%;
-                @include mat-elevation(2);
-                .ln-nav-item {
-                    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
-                    height: 50px;
-                }
-            }
-            &.opaque .nav-item-list {
-                background-color: mat-color($background, card);
-            }
-        }
+  @include page-theme($theme);
+  $folingTime: 0.2s;
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $accent: map-get($theme, accent);
+  .navigation {
+    .menu-button {
+      margin-right: 10px;
     }
+    height: 64px;
+    z-index: 500;
+    width: 100%;
+    position: fixed;
+    transition: background-color $folingTime;
+    color: mat-color($background, card);
+    &.opaque {
+      &:not(.open) {
+        @include mat-elevation(2);
+      }
+      color: mat-color($foreground, base);
+      background-color: mat-color($background, card);
+    }
+    .nav-item-list {
+      padding: 0 15px;
+      height: 100%;
+      overflow: hidden;
+      transition-property: height, color, background-color;
+      transition-duration: $folingTime;
+    }
+    .ln-nav-item {
+      padding: 10px;
+      cursor: pointer;
+      span {
+        margin-left: 5px;
+      }
+      &:hover,
+      &.active {
+        background-color: mat-color($primary, 50);
+        color: mat-color($accent, 700);
+      }
+    }
+    @media screen and (max-width: 960px) {
+      // small nav style
+      height: 54px;
+      .nav-item-list {
+        position: fixed;
+        left: 0;
+        height: 0px;
+        top: 54px;
+        width: 100%;
+        @include mat-elevation(2);
+        .ln-nav-item {
+          border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+          height: 50px;
+        }
+      }
+      &.opaque .nav-item-list {
+        background-color: mat-color($background, card);
+      }
+    }
+  }
 }

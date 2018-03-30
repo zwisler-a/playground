@@ -10,13 +10,13 @@
       [@text]="inViewState.inView?getTextState(i):'out'" *ngIf="image.text">
       <h1 *ngIf="image.text.title">{{image.text.title}}</h1>
       <span *ngIf="image.text.content">{{image.text.content}}</span>
-      <div>
-        <button (click)="actionClicked(image.actions.primary)" class="fancy-button primary" *ngIf="image.actions.primary">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="15px" class="action-container">
+        <pg-fancy-button primary (click)="actionClicked(image.actions.primary)" *ngIf="image.actions.primary">
           {{image.actions.primary}}
-        </button>
-        <button (click)="actionClicked(image.actions.secondary)" class="fancy-button" *ngIf="image.actions.secondary">
+        </pg-fancy-button>
+        <pg-fancy-button (click)="actionClicked(image.actions.secondary)" *ngIf="image.actions.secondary">
           {{image.actions.secondary}}
-        </button>
+        </pg-fancy-button>
       </div>
     </div>
     <div class="image" [@imagePosition]="getImageState(i)" [style.background-image]="'url('+image.imageUrl+')'"></div>

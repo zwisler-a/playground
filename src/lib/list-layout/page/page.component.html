@@ -1,0 +1,10 @@
+<div class="header mat-typography">
+  <div fxFlexFill fxLayout="row" fxLayoutAlign="start center">
+    <div class="title">{{title}}</div>
+    <span fxFlex="1 1 auto"></span>
+    <pg-fancy-button *ngIf="action">{{action}}</pg-fancy-button>
+    <button mat-icon-button (click)="scrollToTop()">
+      <mat-icon *ngIf="!action">{{icon}}</mat-icon>
+    </button>
+  </div>
+</div>

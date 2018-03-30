@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { navItemListState } from "./list.layout.animations";
 import { ObservableMedia } from "@angular/flex-layout";
-import { NavigationService } from "./navigation.service";
-import { NavigationItem } from "./navigation.interface";
 import { Router } from "@angular/router";
+import { NavigationService } from "./services/navigation.service";
+import { NavigationItem } from "./services/navigation.interface";
 
 @Component({
   selector: "pg-list-layout",
@@ -38,17 +38,28 @@ export class ListLayoutComponent implements OnInit, AfterViewInit {
   }
 
   navigateTo(navItem: NavigationItem) {
-    if (navItem.routerLink) {
+    if (navItem.routerLink && typeof navItem.path === "string") {
       this.router.navigateByUrl(navItem.path);
     } else {
-      const elem = document.querySelector(navItem.path);
+      this.navigation.forEach(item => {
+        item.isActive = false;
+      });
+      navItem.isActive = true;
       this.openMenu = false;
-      if (elem) {
-        elem.scrollIntoView();
+      if (navItem.path && navItem.path instanceof HTMLElement) {
+        this.scrollTo(navItem.path);
       } else {
         throw new Error("Element does not exist!");
       }
     }
+  }
+
+  scrollTo(element) {
+    window.scrollBy({
+      top: element.getBoundingClientRect().top - 64,
+      left: 0,
+      behavior: "smooth"
+    });
   }
 
   get navListHeight() {
@@ -59,7 +70,7 @@ export class ListLayoutComponent implements OnInit, AfterViewInit {
 
   get opaque() {
     return (
-      (window.scrollY > window.innerHeight || this.openMenu) && this.isLoaded
+      (window.scrollY > window.innerHeight - 66 || this.openMenu) && this.isLoaded
     );
   }
 
