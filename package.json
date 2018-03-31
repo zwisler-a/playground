@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:lib": "nglb --rootDir src/lib --outDir lib-dist",
+    "build:lib": "nglb --rootDir src/lib --outDir lib-dist && npm run copyscss",
     "build": "ng build --prod",
     "deploy": "node deploy/deploy.js",
     "copyscss": "copyfiles src/lib/**/*.scss lib-dist/ -u 2 && copyfiles src/lib/index.scss lib-dist/ -u 2",
