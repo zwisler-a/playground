@@ -5,17 +5,31 @@ cache:
     - node_modules/
 
 stages:
+  - test
   - build
 
+before_script:
+  - npm install
 
+test:
+  stage: test
+  script:
+    - npm run test
 
-build:
+preview:
   stage: build
   script:
-    - npm install
-    - npm run test
     - npm run build
     - npm run deploy -- $FTP_USER $FTP_PASSWORD $FTP_HOST
   artifacts:
     paths:
     - dist
+
+pages:
+  stage: build
+  script:
+    - npm run compodoc
+  artifacts:
+    paths:
+    - public
+    expire_in: 1h

@@ -7,6 +7,9 @@ import { MatIconModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FancyButtonModule } from "../fancy-button/public.api";
 
+/**
+ * Contains an image carousel component
+ */
 @NgModule({
   imports: [
     CommonModule,

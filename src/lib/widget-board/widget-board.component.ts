@@ -1,50 +1,51 @@
 import {
-  AfterViewInit, Component, ComponentFactoryResolver, EventEmitter, Input, OnInit, Output, QueryList, ViewChild,
-  ViewChildren
-} from '@angular/core';
-import {MatGridList} from "@angular/material";
-import {CustomWidgetComponent} from "../../app/custom-widget/custom-widget.component";
+  AfterViewInit,
+  Component,
+  ComponentFactoryResolver,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+  OnChanges
+} from "@angular/core";
+import { MatGridList } from "@angular/material";
+import { CustomWidgetComponent } from "../../app/custom-widget/custom-widget.component";
+import { Widget } from "./widget.interface";
 
 @Component({
-  selector: 'pg-widget-board',
-  templateUrl: './widget-board.component.html',
-  styleUrls: ['./widget-board.component.scss']
+  selector: "pg-widget-board",
+  templateUrl: "./widget-board.component.html",
+  styleUrls: ["./widget-board.component.scss"]
 })
 export class WidgetBoardComponent implements OnInit, AfterViewInit {
+  @ViewChild("gridList") gridList: MatGridList;
 
-  @ViewChild('gridList')
-  gridList: MatGridList;
+  @ViewChildren("widgetContainer") widgetContainer: QueryList<any>;
 
-  @ViewChildren('widgetContainer')
-  widgetContainer: QueryList<any>;
+  @Input() cols = 4;
+  @Input() rowHeight = "1:1";
 
-  @Input()
-  cols = 4;
-  @Input()
-  rowHeight = '1:1';
+  @Input() editing = false;
 
   @Input()
-  editing = false;
-
-  @Input()
-  widgets: { component: any, placeholder?: boolean }[] = [
-    {component: CustomWidgetComponent},
-    {component: CustomWidgetComponent},
-    {component: CustomWidgetComponent}
+  widgets: Widget[] = [
+    { component: CustomWidgetComponent, rowspan: 2 },
+    { component: CustomWidgetComponent, colspan: 2 },
+    { component: CustomWidgetComponent }
   ];
-  @Output()
-  widgetsChange = new EventEmitter();
+  @Output() widgetsChange = new EventEmitter();
 
   private dragedWidget = undefined;
   private cellHeight: any;
   private cellWidth: number;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-  }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
     this.calcCellSize();
-
   }
 
   ngAfterViewInit(): void {
@@ -67,7 +68,11 @@ export class WidgetBoardComponent implements OnInit, AfterViewInit {
     if (!Number.isInteger(this.dragedWidget)) {
       return;
     }
-    const newId = this.determineCurrentField(ev.clientX, ev.clientY);
+    const newId = this.determineCurrentField(
+      ev.clientX,
+      ev.clientY,
+      this.widgets[this.dragedWidget]
+    );
     if (newId !== this.dragedWidget) {
       this.widgets = this.arrayMove(this.widgets, this.dragedWidget, newId);
       this.dragedWidget = newId;
@@ -76,8 +81,11 @@ export class WidgetBoardComponent implements OnInit, AfterViewInit {
   }
 
   private loadWidget(index, widget) {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(widget.component);
-    let viewContainerRef = this.widgetContainer.toArray()[index].viewContainerRef;
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+      widget.component
+    );
+    const viewContainerRef = this.widgetContainer.toArray()[index]
+      .viewContainerRef;
     viewContainerRef.clear();
     viewContainerRef.createComponent(componentFactory);
   }
@@ -85,7 +93,6 @@ export class WidgetBoardComponent implements OnInit, AfterViewInit {
   toggleEdit() {
     this.editing = !this.editing;
   }
-
 
   /**
    * Move widget in array
@@ -98,7 +105,7 @@ export class WidgetBoardComponent implements OnInit, AfterViewInit {
     if (newIndex > arr.length - 1) {
       let fill = newIndex - (arr.length - 1);
       while (fill-- > 0) {
-        arr.push({placeholder: true})
+        arr.push({ placeholder: true });
       }
     }
     const tmp = arr[newIndex];
@@ -109,38 +116,48 @@ export class WidgetBoardComponent implements OnInit, AfterViewInit {
     }
     return arr;
   }
-  ;
-
   /**
    * Determines the index at wich the widget should be positioned
    * @param {number} x clientX
    * @param {number} y clientY
    * @returns {number} index of array
    */
-  private determineCurrentField(x: number, y: number) {
-    const nativeEl = this.gridList['_element'].nativeElement;
+  private determineCurrentField(x: number, y: number, widget: Widget) {
+    const nativeEl = this.gridList["_element"].nativeElement;
     const glX = x - nativeEl.offsetLeft;
     const glY = y - nativeEl.offsetTop;
     const col = Math.floor(glX / this.cellWidth);
     const row = Math.floor(glY / this.cellHeight);
-    return (this.cols * row + col);
+    console.log(this.getAddedCellBefore(widget));
+    return this.cols * row + col - this.getAddedCellBefore(widget);
+  }
+
+  private getAddedCellBefore(until: Widget) {
+    let count = 0;
+    this.widgets.some(widget => {
+      count += (widget.colspan || 1) - 1;
+      if ((widget.colspan || 1) - 1 > 0) {
+        console.log(widget);
+      }
+      return widget === until;
+    });
+    return count;
   }
 
   /**
    * Clac the cell size of the gridlist for further calculations
    */
 
-
   private calcCellSize() {
-    const nativeEl = this.gridList['_element'].nativeElement;
+    const nativeEl = this.gridList["_element"].nativeElement;
     this.cellWidth = nativeEl.offsetWidth / this.cols;
     const rowHeight = this.rowHeight;
     if (typeof rowHeight === "string") {
-      const d = rowHeight.split(':');
-      this.cellHeight = (Number.parseInt(d[1]) / Number.parseInt(d[0])) * this.cellWidth;
+      const d = rowHeight.split(":");
+      this.cellHeight =
+        Number.parseInt(d[1]) / Number.parseInt(d[0]) * this.cellWidth;
     } else {
       this.cellHeight = rowHeight;
     }
   }
-
 }

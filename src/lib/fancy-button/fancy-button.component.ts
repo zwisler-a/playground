@@ -1,5 +1,13 @@
 import { Component, OnInit, Input } from "@angular/core";
 
+/**
+ * Custom styled button - similar to all the transparent style buttons
+ * Has a primary and a normal version
+ * ```html
+ *  <pg-fancy-button>Content</pg-fance-button> <!-- normal -->
+ *  <pg-fancy-button primary>Content</pg-fance-button> <!-- primary -->
+ * ```
+ */
 @Component({
   selector: "pg-fancy-button",
   templateUrl: "fancy-button.component.html",

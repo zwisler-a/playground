@@ -1,2 +1,3 @@
-export {WidgetBoardModule} from "./widget-board.module";
-export {WidgetBoardComponent} from "./widget-board.component";
+export { WidgetBoardModule } from "./widget-board.module";
+export { Widget } from "./widget.interface";
+export { WidgetBoardComponent } from "./widget-board.component";

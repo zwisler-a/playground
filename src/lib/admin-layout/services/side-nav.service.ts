@@ -15,7 +15,7 @@ export class SideNavService {
   constructor(private media: ObservableMedia) {
     this.media.subscribe((state: MediaChange) => {
       this.determineState(state.mqAlias);
-    })
+    });
   }
 
   set state(state: "big" | "small" | "hidden") {
@@ -35,14 +35,14 @@ export class SideNavService {
     if (this.media.isActive('xs') || this.media.isActive('sm')) {
       if (this.state === "small" || this.state === "big") {
         this.state = "hidden";
-      } else if (this.state == "hidden") {
-        this.state = "big"
+      } else if (this.state === "hidden") {
+        this.state = "big";
       }
     } else if (this.media.isActive('md') || this.media.isActive('xl') || this.media.isActive('lg')) {
       if (this.state === "small" || this.state === "hidden") {
         this.state = "big";
-      } else if (this.state == "big") {
-        this.state = "small"
+      } else if (this.state === "big") {
+        this.state = "small";
       }
     }
   }

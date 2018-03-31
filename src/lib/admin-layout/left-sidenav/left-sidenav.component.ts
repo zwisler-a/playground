@@ -6,6 +6,7 @@ import {NavigationService} from "../services/navigation.service";
 import {SideNavService} from "../services/side-nav.service";
 
 /**
+ * @internal
  * Displays the navigation for the admin layout
  */
 @Component({
@@ -32,15 +33,20 @@ export class LeftSidenavComponent implements OnInit, OnDestroy {
     return this.sideNavService.state;
   }
 
+  /**
+   * @ignore
+   */
   ngOnInit() {
 
     this.navigation = this.navigationService.model;
     this.navModelChangeSub = this.navigationService.onNavigationModelChanged.subscribe((model) => {
       this.navigation = model;
-    })
+    });
 
   }
-
+ /**
+  * @ignore
+  */
   ngOnDestroy(): void {
     this.navModelChangeSub.unsubscribe();
   }

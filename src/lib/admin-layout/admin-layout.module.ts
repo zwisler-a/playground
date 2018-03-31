@@ -15,7 +15,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {LoadingBarInterceptor} from "./services/loading-bar.interceptor";
 import {LoadingBarService} from "./services/loading-bar.service";
 
-
+/**
+ * The module containing the admin-layout
+ * Registers a HttpClient interceptor for the loadingbar {@link LoadingBarService}
+ */
 @NgModule({
   imports: [
     CommonModule,

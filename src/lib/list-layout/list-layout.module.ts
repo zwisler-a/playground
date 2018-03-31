@@ -4,7 +4,7 @@ import { ListLayoutComponent } from "./list-layout.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterModule } from "@angular/router";
 import { MatButtonModule, MatIconModule } from "@angular/material";
-import { NavigationService } from "./services/navigation.service";
+import { ListNavigationService } from "./services/list-navigation.service";
 import { PageComponent } from "./page/page.component";
 import { FancyButtonModule } from "../fancy-button/public.api";
 
@@ -17,7 +17,7 @@ import { FancyButtonModule } from "../fancy-button/public.api";
     FancyButtonModule,
     MatIconModule
   ],
-  providers: [NavigationService],
+  providers: [ListNavigationService],
   declarations: [ListLayoutComponent, PageComponent],
   exports: [ListLayoutComponent, PageComponent]
 })

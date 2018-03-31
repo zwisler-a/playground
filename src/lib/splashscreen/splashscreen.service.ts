@@ -9,6 +9,7 @@ export class SplashscreenService {
   private ssDiv: HTMLDivElement;
   private _displayed = false;
 
+  /** @ignore */
   constructor() {
     this.ssDiv = document.createElement("div");
     this.ssDiv.setAttribute("class", "splash");
@@ -21,6 +22,9 @@ export class SplashscreenService {
     this.show();
   }
 
+  /**
+   * Displays the SplashScreen
+   */
   public show() {
     if (!this._displayed) {
       document.body.appendChild(this.ssDiv);
@@ -28,6 +32,9 @@ export class SplashscreenService {
     }
   }
 
+  /**
+   * Hides the SplashScreen
+   */
   public hide() {
     if (this._displayed) {
       document.body.removeChild(this.ssDiv);
@@ -35,6 +42,9 @@ export class SplashscreenService {
     }
   }
 
+  /**
+   * If the SplashScreen is currently shown
+   */
   get isDisplayed() {
     return this._displayed;
   }

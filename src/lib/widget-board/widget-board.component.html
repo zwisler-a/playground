@@ -1,10 +1,7 @@
 <div fxFill class="scroll-container" (mousemove)="mouseMove($event)">
   <mat-grid-list #gridList [cols]="cols" [rowHeight]="rowHeight" (mouseup)="dragstop($event)">
-    <mat-grid-tile *ngFor="let widget of widgets;let i = index">
-      <pg-widget *ngIf="!widget.placeholder"
-                 [editing]="editing"
-                 (dragstart)="dragstart(i,$event)"
-                 #widgetContainer>
+    <mat-grid-tile [colspan]="widget.colspan || 1" [rowspan]="widget.rowspan || 1" *ngFor="let widget of widgets;let i = index">
+      <pg-widget *ngIf="!widget.placeholder" [editing]="editing" (dragstart)="dragstart(i,$event)" #widgetContainer>
       </pg-widget>
     </mat-grid-tile>
   </mat-grid-list>

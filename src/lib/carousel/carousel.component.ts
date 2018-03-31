@@ -2,6 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { carouselAnimations } from "./carousel.animation";
 import { CarouselSlide } from "./carousel-slide.interface";
 
+/**
+ * An Image carousel.
+ * Slides change until userinteraction according to @input changeInterval
+ */
 @Component({
   selector: "pg-carousel",
   templateUrl: "./carousel.component.html",
@@ -9,13 +13,23 @@ import { CarouselSlide } from "./carousel-slide.interface";
   animations: carouselAnimations
 })
 export class CarouselComponent implements OnInit {
+  /**
+   * Slides that should be inside the image carousel
+   */
   @Input() public slides: CarouselSlide[] = [];
+  /**
+   * Invterval in ms in which the slides are supposed to change
+   */
   @Input() private changeInterval = 15000;
 
   private currentImage = 0;
 
   private intervalId;
 
+  /**
+   * Emitted when a action button in the carousel is clicked
+   * Contains the string in the action taken from the slide info
+   */
   @Output() private action = new EventEmitter<string>();
 
   constructor() {}
@@ -26,6 +40,10 @@ export class CarouselComponent implements OnInit {
     }, this.changeInterval);
   }
 
+  /**
+   * Changes the carousel to the next image
+   * @param stopInterval change should stop interval
+   */
   nextImage(stopInterval?: boolean) {
     if (stopInterval) {
       clearInterval(this.intervalId);
@@ -35,6 +53,10 @@ export class CarouselComponent implements OnInit {
     }
   }
 
+  /**
+   * Changes the carousel to the prev. image
+   * @param stopInterval change should stop interval
+   */
   prevImage(stopInterval?: boolean) {
     if (stopInterval) {
       clearInterval(this.intervalId);
@@ -44,18 +66,30 @@ export class CarouselComponent implements OnInit {
     }
   }
 
+  /**
+   * @internal
+   */
   get hasNext() {
     return this.currentImage !== this.slides.length - 1;
   }
 
+  /**
+   * @internal
+   */
   get hasPrevious() {
     return this.currentImage !== 0;
   }
 
+  /**
+   * @internal
+   */
   actionClicked(text: string) {
     this.action.emit(text);
   }
 
+  /**
+   * @internal
+   */
   getImageState(index: number) {
     if (index === this.currentImage) {
       return "center";
@@ -66,6 +100,9 @@ export class CarouselComponent implements OnInit {
     }
   }
 
+  /**
+   * @internal
+   */
   getTextState(index: number) {
     return index === this.currentImage ? "in" : "out";
   }

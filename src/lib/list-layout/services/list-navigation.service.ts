@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { NavigationItem } from "./navigation.interface";
 
 @Injectable()
-export class NavigationService {
+export class ListNavigationService {
   private _model: NavigationItem[] = [];
 
   constructor() {}
