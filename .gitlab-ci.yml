@@ -28,7 +28,7 @@ bplaced:
 lib:
   stage: build
   script:
-    - npm run build:build
+    - npm run build:lib
   artifacts:
     paths:
     - lib-dist
