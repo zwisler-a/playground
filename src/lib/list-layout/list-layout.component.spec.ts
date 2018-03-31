@@ -5,7 +5,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MatButtonModule, MatIconModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NavigationService } from "./services/navigation.service";
+import { ListNavigationService } from "./services/list-navigation.service";
 
 describe("ListLayoutComponent", () => {
   let component: ListLayoutComponent;
@@ -21,7 +21,7 @@ describe("ListLayoutComponent", () => {
           BrowserAnimationsModule,
           MatIconModule
         ],
-        providers: [NavigationService],
+        providers: [ListNavigationService],
         declarations: [ListLayoutComponent]
       }).compileComponents();
     })

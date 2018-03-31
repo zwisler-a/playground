@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy, ElementRef } from "@angular/core";
-import { NavigationService } from "../services/navigation.service";
+import { ListNavigationService } from "../services/list-navigation.service";
 
 @Component({
   selector: "pg-list-page",
@@ -12,7 +12,7 @@ export class PageComponent implements OnInit, OnDestroy {
   @Input() action: string;
 
   constructor(
-    private navigationService: NavigationService,
+    private navigationService: ListNavigationService,
     private elemRef: ElementRef
   ) {}
 
