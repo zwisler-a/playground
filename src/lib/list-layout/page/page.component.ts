@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, OnDestroy, ElementRef } from "@angular/core";
+import { Component, OnInit, Input, OnDestroy, ElementRef, ViewEncapsulation } from "@angular/core";
 import { ListNavigationService } from "../services/list-navigation.service";
 
 @Component({
   selector: "pg-list-page",
   templateUrl: "page.component.html",
-  styleUrls: ["page.component.scss"]
+  styleUrls: ["page.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class PageComponent implements OnInit, OnDestroy {
   @Input() title: string;

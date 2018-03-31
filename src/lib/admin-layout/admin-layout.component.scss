@@ -1,26 +1,28 @@
 @import "~@angular/material/theming";
 @import "left-sidenav/left-sidenav.component";
-:host {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
 
 @mixin admin-layout-theme($theme) {
   @include side-nav-theme($theme);
   $bg: map-get($theme, background);
-  .sideNavContainer {
+
+  pg-admin-layout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  .pg-admin-layout-side-nav-container {
     @include mat-elevation(4);
     z-index: 500;
     background-color: mat-color($bg, card);
     overflow: hidden;
   }
-  .pushOver {
+  .pg-admin-layout-push-over {
     position: fixed;
     height: 100%;
     z-index: 5000;
   }
-  .backdrop {
+  .pg-admin-layout-backdrop {
     z-index: 4999;
     background-color: rgba(black, 0.4);
     position: fixed;

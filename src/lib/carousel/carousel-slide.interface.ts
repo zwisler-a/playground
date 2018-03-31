@@ -7,5 +7,5 @@ export interface CarouselSlide {
   actions?: {
     primary?: string;
     secondary?: string;
-  }
+  };
 }

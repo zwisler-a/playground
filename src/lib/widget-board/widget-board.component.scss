@@ -3,7 +3,7 @@
 @mixin widget-board-theme($theme) {
   $primary: map-get($theme, primary);
   $foreground: map-get($theme, foreground);
-  button.edit-button {
+  button.pg-widget-edit-button {
     position: absolute;
     width: 54px;
     height: 54px;
@@ -15,7 +15,7 @@
   }
 }
 
-.scroll-container {
+.pg-widget-scroll-container {
   overflow: auto;
 }
 

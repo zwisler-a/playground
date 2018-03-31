@@ -5,7 +5,8 @@ import {
   Input,
   OnInit,
   Output,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from "@angular/core";
 import { SearchBarService } from "./search-bar.service";
 /**
@@ -15,7 +16,8 @@ import { SearchBarService } from "./search-bar.service";
 @Component({
   selector: "pg-search-bar",
   templateUrl: "./search-bar.component.html",
-  styleUrls: ["./search-bar.component.scss"]
+  styleUrls: ["./search-bar.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class SearchBarComponent implements OnInit {
   @ViewChild("inputField") inputField: ElementRef;

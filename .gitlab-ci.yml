@@ -16,7 +16,7 @@ test:
   script:
     - npm run test
 
-preview:
+bplaced:
   stage: build
   script:
     - npm run build
@@ -24,6 +24,14 @@ preview:
   artifacts:
     paths:
     - dist
+
+lib:
+  stage: build
+  script:
+    - npm run build:build
+  artifacts:
+    paths:
+    - lib-dist
 
 pages:
   stage: build

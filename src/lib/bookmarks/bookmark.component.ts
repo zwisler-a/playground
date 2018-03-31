@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Router } from "@angular/router";
 import { Bookmark } from "./bookmark.interface";
 
@@ -10,7 +10,8 @@ import { Bookmark } from "./bookmark.interface";
 @Component({
   selector: "pg-bookmarks",
   templateUrl: "./bookmark.component.html",
-  styleUrls: ["./bookmark.component.scss"]
+  styleUrls: ["./bookmark.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class BookmarkComponent implements OnInit {
   private readonly BOOKMARK_LS_KEY = "pgBookmarks";

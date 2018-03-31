@@ -1,4 +1,4 @@
-<div class="nav mat-typography" fxFill>
+<div class="mat-typography" fxFill>
 
   <mat-toolbar color="">
 
@@ -8,7 +8,7 @@
     </button>
   </mat-toolbar>
 
-  <div *ngFor="let item of navigation" [routerLink]="[item.path]" class="nav-item">
+  <div *ngFor="let item of navigation" [routerLink]="[item.path]" class="pg-admin-layout-nav-item">
     <mat-icon>{{item.icon}}</mat-icon>
     <span>{{item.name}}</span>
   </div>

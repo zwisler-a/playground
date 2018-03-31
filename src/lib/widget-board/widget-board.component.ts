@@ -9,16 +9,17 @@ import {
   QueryList,
   ViewChild,
   ViewChildren,
-  OnChanges
+  OnChanges,
+  ViewEncapsulation
 } from "@angular/core";
 import { MatGridList } from "@angular/material";
-import { CustomWidgetComponent } from "../../app/custom-widget/custom-widget.component";
 import { Widget } from "./widget.interface";
 
 @Component({
   selector: "pg-widget-board",
   templateUrl: "./widget-board.component.html",
-  styleUrls: ["./widget-board.component.scss"]
+  styleUrls: ["./widget-board.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class WidgetBoardComponent implements OnInit, AfterViewInit {
   @ViewChild("gridList") gridList: MatGridList;
@@ -31,11 +32,7 @@ export class WidgetBoardComponent implements OnInit, AfterViewInit {
   @Input() editing = false;
 
   @Input()
-  widgets: Widget[] = [
-    { component: CustomWidgetComponent, rowspan: 2 },
-    { component: CustomWidgetComponent, colspan: 2 },
-    { component: CustomWidgetComponent }
-  ];
+  widgets: Widget[] = [];
   @Output() widgetsChange = new EventEmitter();
 
   private dragedWidget = undefined;

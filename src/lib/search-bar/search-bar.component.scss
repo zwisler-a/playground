@@ -1,6 +1,6 @@
 @import "~@angular/material/theming";
 
-div {
+.pg-search-wrapper {
   @include mat-elevation(4);
   padding: 16px;
   height: 56px;

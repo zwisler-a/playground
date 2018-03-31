@@ -1,11 +1,11 @@
 <div>
-  <div class="navigation" [ngClass]="{opaque:opaque,open:openMenu}" fxLayout="row" fxLayoutAlign="center center">
+  <div class="pg-list-navigation" [ngClass]="{opaque:opaque,open:openMenu}" fxLayout="row" fxLayoutAlign="center center">
     <div fxFlex="1 1 auto">
       <ng-content></ng-content>
     </div>
     <div fxLayout="row" fxLayout.sm="column" [style.height.px]="navListHeight" fxLayoutAlign="end stretch" fxLayout.xs="column"
-      class="nav-item-list">
-      <div class="ln-nav-item mat-typography" [ngClass]="{active:navItem.isActive}" (click)="navigateTo(navItem)" fxLayoutAlign="start center"
+      class="pg-list-nav-item-list">
+      <div class="pg-list-nav-item mat-typography" [ngClass]="{active:navItem.isActive}" (click)="navigateTo(navItem)" fxLayoutAlign="start center"
         fxLayout="row" *ngFor="let navItem of navigation">
         <mat-icon>{{navItem.icon}}</mat-icon>
         <span>{{navItem.name}}</span>

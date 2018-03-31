@@ -4,7 +4,8 @@ import {
   Input,
   OnInit,
   TemplateRef,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from "@angular/core";
 import { ObservableMedia } from "@angular/flex-layout";
 
@@ -25,7 +26,8 @@ import { ObservableMedia } from "@angular/flex-layout";
 @Component({
   selector: "pg-list-detail-view",
   templateUrl: "./list-detail-view.component.html",
-  styleUrls: ["./list-detail-view.component.scss"]
+  styleUrls: ["./list-detail-view.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class ListDetailViewComponent implements OnInit {
   @ContentChild("listContentTemplate") lcTemplate: TemplateRef<any>;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 /**
  * A centered page card componenet with a header and a content part
@@ -12,7 +12,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'pg-centered-page',
   templateUrl: './centered-page.component.html',
-  styleUrls: ['./centered-page.component.scss']
+  styleUrls: ['./centered-page.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CenteredPageComponent implements OnInit {
 

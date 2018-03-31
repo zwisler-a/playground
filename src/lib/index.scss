@@ -6,6 +6,7 @@
 @import "list-layout/list-layout.component";
 @import "fancy-button/fancy-button.component";
 
+// Create the pg theme
 @mixin pg-theme($theme) {
   @include admin-layout-theme($theme);
   @include list-layout-theme($theme);

@@ -1,16 +1,16 @@
 <div fxFlexFill style="position:relative;">
-  <div (click)="prevImage(true)" fxLayoutAlign="center center" *ngIf="hasPrevious" class="control-arrow" id="previous">
+  <div (click)="prevImage(true)" fxLayoutAlign="center center" *ngIf="hasPrevious" class="pg-carousel-control-arrow" id="pg-carousel-previous">
     <mat-icon>keyboard_arrow_left</mat-icon>
   </div>
-  <div (click)="nextImage(true)" fxLayoutAlign="center center" *ngIf="hasNext" class="control-arrow" id="next">
+  <div (click)="nextImage(true)" fxLayoutAlign="center center" *ngIf="hasNext" class="pg-carousel-control-arrow" id="pg-carousel-next">
     <mat-icon>keyboard_arrow_right</mat-icon>
   </div>
   <div *ngFor="let image of slides;let i = index" style="position: absolute;width:100%;height:100%;overflow:hidden">
-    <div id="text-container" class="mat-typography" pgIsInView #inViewState="inView" [biDirectional]="true" [offset]="-10" [inPercent]="true"
+    <div id="pg-carousel-text-container" class="mat-typography" pgIsInView #inViewState="inView" [biDirectional]="true" [offset]="-10" [inPercent]="true"
       [@text]="inViewState.inView?getTextState(i):'out'" *ngIf="image.text">
       <h1 *ngIf="image.text.title">{{image.text.title}}</h1>
       <span *ngIf="image.text.content">{{image.text.content}}</span>
-      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="15px" class="action-container">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="15px" class="pg-carousel-action-container">
         <pg-fancy-button primary (click)="actionClicked(image.actions.primary)" *ngIf="image.actions.primary">
           {{image.actions.primary}}
         </pg-fancy-button>
@@ -19,7 +19,7 @@
         </pg-fancy-button>
       </div>
     </div>
-    <div class="image" [@imagePosition]="getImageState(i)" [style.background-image]="'url('+image.imageUrl+')'"></div>
+    <div class="pg-carousel-image" [@imagePosition]="getImageState(i)" [style.background-image]="'url('+image.imageUrl+')'"></div>
   </div>
 
 </div>

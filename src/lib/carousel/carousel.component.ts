@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from "@angular/core";
 import { carouselAnimations } from "./carousel.animation";
 import { CarouselSlide } from "./carousel-slide.interface";
 
@@ -10,7 +10,8 @@ import { CarouselSlide } from "./carousel-slide.interface";
   selector: "pg-carousel",
   templateUrl: "./carousel.component.html",
   styleUrls: ["./carousel.component.scss"],
-  animations: carouselAnimations
+  animations: carouselAnimations,
+  encapsulation: ViewEncapsulation.None
 })
 export class CarouselComponent implements OnInit {
   /**

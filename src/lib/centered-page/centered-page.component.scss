@@ -2,34 +2,33 @@
 
 @mixin centered-page-theme($theme) {
   $primary: map-get($theme, primary);
-  #header {
-    background: linear-gradient(110deg,
+  .pg-centered-page-header {
+    background: linear-gradient(
+      110deg,
       mat-color($primary, 100) 60%,
-      mat-color($primary, 200) 60%);
+      mat-color($primary, 200) 60%
+    );
+    height: 192px;
+    .pg-centered-page-content {
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      @media screen and (max-width: 599px) {
+        margin: auto;
+        height: 138px;
+      }
+      height: 128px;
+      margin: auto 32px;
+    }
   }
-}
 
-#header {
-  height: 192px;
-  #content {
+  .pg-centered-page-page {
     display: flex;
     flex: 1 1 auto;
-    align-items: center;
+    @include mat-elevation(4);
     @media screen and (max-width: 599px) {
-      margin: auto;
-      height: 138px;
+      margin: -56px 0 0 0;
     }
-    height: 128px;
-    margin: auto 32px;
+    margin: -64px 32px 32px 32px;
   }
-}
-
-.page {
-  display: flex;
-  flex: 1 1 auto;
-  @include mat-elevation(4);
-  @media screen and (max-width: 599px) {
-    margin: -56px 0 0 0;
-  }
-  margin: -64px 32px 32px 32px;
 }

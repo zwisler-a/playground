@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewEncapsulation } from "@angular/core";
 import { navItemListState } from "./list.layout.animations";
 import { ObservableMedia } from "@angular/flex-layout";
 import { Router } from "@angular/router";
@@ -13,7 +13,8 @@ import { NavigationItem } from "./services/navigation.interface";
   selector: "pg-list-layout",
   templateUrl: "./list-layout.component.html",
   styleUrls: ["./list-layout.component.scss"],
-  animations: [navItemListState]
+  animations: [navItemListState],
+  encapsulation: ViewEncapsulation.None
 })
 export class ListLayoutComponent implements OnInit, AfterViewInit {
   // used to avoid value has changed error

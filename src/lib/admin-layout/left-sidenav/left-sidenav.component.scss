@@ -5,7 +5,7 @@
   $primary: map-get($theme, primary);
 
   // Use mat-color to extract individual colors from a palette as necessary.
-  .nav-item {
+  .pg-admin-layout-nav-item {
     display: flex;
     align-items: center;
     cursor: pointer;

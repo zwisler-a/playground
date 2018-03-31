@@ -1,6 +1,6 @@
 @mixin fancy-button-theme($theme) {
   $accent: map-get($theme, accent);
-  .fancy-button {
+  .pg-fancy-button {
     color: white;
     font-weight: bold;
     user-select: none;
@@ -13,14 +13,14 @@
     padding: 0px 35px 0px 35px;
     transition: all 0.2s ease-in-out;
   }
-  .fancy-button.primary {
+  .pg-fancy-button.primary {
     background-color: mat-color($accent, 700);
     border-color: rgba(0, 0, 0, 0);
   }
-  .fancy-button.primary:hover {
+  .pg-fancy-button.primary:hover {
     background-color: mat-color($accent, 800);
   }
-  .fancy-button:hover {
+  .pg-fancy-button:hover {
     background-color: mat-color($accent, 800);
     border-color: rgba(0, 0, 0, 0);
   }

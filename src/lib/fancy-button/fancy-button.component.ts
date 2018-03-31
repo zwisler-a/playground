@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ViewEncapsulation } from "@angular/core";
 
 /**
  * Custom styled button - similar to all the transparent style buttons
@@ -11,7 +11,8 @@ import { Component, OnInit, Input } from "@angular/core";
 @Component({
   selector: "pg-fancy-button",
   templateUrl: "fancy-button.component.html",
-  styleUrls: ["fancy-button.component.scss"]
+  styleUrls: ["fancy-button.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class FancyButtonComponent implements OnInit {
   _primary = false;

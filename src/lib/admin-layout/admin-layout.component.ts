@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { sidenavAdnimations } from "./admin-layout.animations";
 import { SideNavService } from "./services/side-nav.service";
 import { LoadingBarService } from "./services/loading-bar.service";
@@ -20,7 +20,8 @@ import { ObservableMedia } from "@angular/flex-layout";
   selector: "pg-admin-layout",
   templateUrl: "./admin-layout.component.html",
   styleUrls: ["./admin-layout.component.scss"],
-  animations: [sidenavAdnimations]
+  animations: [sidenavAdnimations],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminLayoutComponent implements OnInit {
   /**

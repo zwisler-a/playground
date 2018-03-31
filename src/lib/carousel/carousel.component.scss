@@ -4,12 +4,12 @@
   $accent: map-get($theme, accent);
   $foreground: map-get($theme, foreground);
   $background: map-get($theme, background);
-  .control-arrow:hover {
+  .pg-carousel-control-arrow:hover {
     opacity: 1;
     color: mat-color($primary, 900);
     transition: all 0.2s ease-in-out;
   }
-  .control-arrow {
+  .pg-carousel-control-arrow {
     @include mat-elevation(2);
     color: mat-color($foreground, base);
     background-color: mat-color($background, card);
@@ -28,15 +28,15 @@
       margin: auto;
     }
   }
-  #previous {
+  #pg-carousel-previous {
     top: 50%;
     left: 0;
   }
-  #next {
+  #pg-carousel-next {
     top: 50%;
     right: 0;
   }
-  .image {
+  .pg-carousel-image {
     position: relative;
     height: 100%;
     width: 100%;
@@ -45,7 +45,7 @@
     background-size: cover;
     background-position: center;
   }
-  #text-container {
+  #pg-carousel-text-container {
     position: absolute;
     top: 25%;
     color: white;
@@ -62,7 +62,7 @@
         font-size: 15px !important;
       }
     }
-    .action-container {
+    .pg-carousel-action-container {
       padding: 15px 0;
     }
     width: 50%;

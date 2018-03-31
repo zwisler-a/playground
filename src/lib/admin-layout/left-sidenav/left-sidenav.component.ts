@@ -1,29 +1,33 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from "rxjs/Subscription";
-import {sidenavAdnimations, toggleButtonAnimations} from "../admin-layout.animations";
-import {NavigationModelItem} from "../services/navigation-model.interface";
-import {NavigationService} from "../services/navigation.service";
-import {SideNavService} from "../services/side-nav.service";
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from "@angular/core";
+import { Subscription } from "rxjs/Subscription";
+import {
+  sidenavAdnimations,
+  toggleButtonAnimations
+} from "../admin-layout.animations";
+import { NavigationModelItem } from "../services/navigation-model.interface";
+import { NavigationService } from "../services/navigation.service";
+import { SideNavService } from "../services/side-nav.service";
 
 /**
  * @internal
  * Displays the navigation for the admin layout
  */
 @Component({
-  selector: 'app-left-sidenav',
-  templateUrl: './left-sidenav.component.html',
-  styleUrls: ['./left-sidenav.component.scss'],
-  animations: [sidenavAdnimations, toggleButtonAnimations]
+  selector: "app-left-sidenav",
+  templateUrl: "./left-sidenav.component.html",
+  styleUrls: ["./left-sidenav.component.scss"],
+  animations: [sidenavAdnimations, toggleButtonAnimations],
+  encapsulation: ViewEncapsulation.None
 })
 export class LeftSidenavComponent implements OnInit, OnDestroy {
-
   public navigation: NavigationModelItem[];
 
   private navModelChangeSub: Subscription;
 
-  constructor(private navigationService: NavigationService,
-              private sideNavService: SideNavService) {
-  }
+  constructor(
+    private navigationService: NavigationService,
+    private sideNavService: SideNavService
+  ) {}
 
   expansionToggle() {
     this.sideNavService.toggleInContextWidth();
@@ -37,18 +41,17 @@ export class LeftSidenavComponent implements OnInit, OnDestroy {
    * @ignore
    */
   ngOnInit() {
-
     this.navigation = this.navigationService.model;
-    this.navModelChangeSub = this.navigationService.onNavigationModelChanged.subscribe((model) => {
-      this.navigation = model;
-    });
-
+    this.navModelChangeSub = this.navigationService.onNavigationModelChanged.subscribe(
+      model => {
+        this.navigation = model;
+      }
+    );
   }
- /**
-  * @ignore
-  */
+  /**
+   * @ignore
+   */
   ngOnDestroy(): void {
     this.navModelChangeSub.unsubscribe();
   }
-
 }
