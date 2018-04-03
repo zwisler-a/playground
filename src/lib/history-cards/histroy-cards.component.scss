@@ -1,0 +1,47 @@
+@import "~@angular/material/theming";
+
+@mixin history-cards-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+
+  .pg-history-cards-wrapper {
+    padding: 15px;
+    background-color: mat-color($background, background);
+  }
+  .pg-history-cards-timeline {
+    background-color: mat-color($primary, "50-contrast");
+    margin: -15px 0;
+    position: relative;
+
+    .anchor {
+      width: 16px;
+      height: 16px;
+      transform: translateX(-7px);
+      border-radius: 100%;
+      background-color: mat-color($accent, 500);
+      position: absolute;
+      @include mat-elevation(2);
+    }
+  }
+  .pg-history-cards-wrapper {
+    mat-card::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 50%;
+      right: -9px;
+      transform: translateY(-50%) rotate(45deg);
+      background-color: mat-color($background, card);
+      border: solid 1px rgba(black, 0.18);
+      border-bottom: none;
+      border-left: none;
+    }
+    .pg-history-cards-right mat-card::before {
+      left: -9px;
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+}

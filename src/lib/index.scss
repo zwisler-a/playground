@@ -5,6 +5,8 @@
 @import "carousel/carousel.component";
 @import "list-layout/list-layout.component";
 @import "fancy-button/fancy-button.component";
+@import "history-cards/histroy-cards.component";
+@import "search-bar/search-bar.component";
 
 // Create the pg theme
 @mixin pg-theme($theme) {
@@ -13,6 +15,8 @@
   @include centered-page-theme($theme);
   @include widget-board-theme($theme);
   @include carousel-theme($theme);
+  @include search-bar-theme($theme);
   @include fancy-button-theme($theme);
+  @include history-cards-theme($theme);
   @include splashScreen(mat-color(map-get($theme, primary), 900));
 }

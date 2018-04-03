@@ -1,7 +1,13 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { CustomCarouselComponent } from "./custom-carousel.component";
-import { CarouselModule, ListLayoutModule } from "../../lib";
+import {
+  CarouselModule,
+  ListLayoutModule,
+  HistoryCardsModule
+} from "../../lib";
+import { MatCardModule } from "@angular/material";
+import { CommonModule } from "@angular/common";
 
 describe("CustomCarouselComponent", () => {
   let component: CustomCarouselComponent;
@@ -10,7 +16,13 @@ describe("CustomCarouselComponent", () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [CarouselModule, ListLayoutModule],
+        imports: [
+          CarouselModule,
+          ListLayoutModule,
+          MatCardModule,
+          HistoryCardsModule,
+          CommonModule
+        ],
         declarations: [CustomCarouselComponent]
       }).compileComponents();
     })

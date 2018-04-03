@@ -32,4 +32,12 @@ export class CustomCarouselComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  createItemSize(index) {
+    const obj = [];
+    for (let i = 0; i < index; i++) {
+      obj.push({});
+    }
+    return obj;
+  }
 }

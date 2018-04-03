@@ -3,7 +3,16 @@
     <pg-carousel fxFlex="0 0 100%" [slides]="slides"></pg-carousel>
   </div>
   <pg-list-page title="White" icon="menu"></pg-list-page>
-  <div fxFlex="0 0 100vh" style="background-color:#FFF" id="section1-jp"></div>
+  <pg-history-cards>
+    <mat-card *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11]">
+      <mat-card-title>Hi</mat-card-title>
+      <mat-card-content>
+        <span>Test</span>
+        <br *ngFor="let i of createItemSize(i)">
+      </mat-card-content>
+    </mat-card>
+
+  </pg-history-cards>
   <pg-list-page title="Black" icon="menu"></pg-list-page>
   <div fxFlex="0 0 100vh" style="background-color:#000" id="section2-jp"></div>
   <pg-list-page title="Blue" icon="menu"></pg-list-page>

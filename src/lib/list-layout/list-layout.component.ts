@@ -1,4 +1,9 @@
-import { Component, OnInit, AfterViewInit, ViewEncapsulation } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewEncapsulation
+} from "@angular/core";
 import { navItemListState } from "./list.layout.animations";
 import { ObservableMedia } from "@angular/flex-layout";
 import { Router } from "@angular/router";
@@ -85,7 +90,9 @@ export class ListLayoutComponent implements OnInit, AfterViewInit {
    */
   private scrollTo(element) {
     window.scrollBy({
-      top: element.getBoundingClientRect().top - 64,
+      top:
+        element.getBoundingClientRect().top -
+        (this.media.isActive("gt-md") ? 64 : 54),
       left: 0,
       behavior: "smooth"
     });

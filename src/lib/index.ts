@@ -11,3 +11,4 @@ export * from "./carousel/public.api";
 export * from "./is-in-view/public.api";
 export * from "./list-layout/public.api";
 export * from "./fancy-button/public.api";
+export * from "./history-cards/public.api";

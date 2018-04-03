@@ -21,7 +21,8 @@ import {
   SplashscreenModule,
   SplashscreenService,
   WidgetBoardModule,
-  ListLayoutNavigationService
+  ListLayoutNavigationService,
+  HistoryCardsModule
 } from "../lib";
 import { CustomPageComponent } from "./custom-page/custom-page.component";
 import { ListDetailViewComponent } from "./list-detail-view/list-detail-view.component";
@@ -43,6 +44,7 @@ import { FancyButtonModule } from "../lib/fancy-button/fancy-button.module";
     CenteredPageModule,
     BookmarkModule,
     SearchBarModule,
+    HistoryCardsModule,
     SplashscreenModule,
     WidgetBoardModule,
     FancyButtonModule,

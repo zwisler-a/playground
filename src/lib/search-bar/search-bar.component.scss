@@ -1,13 +1,20 @@
 @import "~@angular/material/theming";
 
-.pg-search-wrapper {
-  @include mat-elevation(4);
-  padding: 16px;
-  height: 56px;
-  background-color: white;
-  input {
-    border: none;
-    outline: none;
-    margin-left: 16px;
+@mixin search-bar-theme($theme) {
+  $bg: map-get($theme, background);
+  $fg: map-get($theme, foreground);
+  .pg-search-wrapper {
+    @include mat-elevation(4);
+    padding: 16px;
+    height: 56px;
+    background-color: mat-color($bg, card);
+    color: mat-color($fg, base);
+    input {
+      background-color: mat-color($bg, card);
+      color: mat-color($fg, base);
+      border: none;
+      outline: none;
+      margin-left: 16px;
+    }
   }
 }

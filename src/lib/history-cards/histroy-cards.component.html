@@ -1,0 +1,13 @@
+<div class="pg-history-cards-wrapper" fxFlexFill fxLayout="row" fxLayoutGap="30px">
+
+  <div fxHide.xs fxFlexOrder.xs="2" class="pg-history-cards-left" fxLayout="column" fxLayoutGap="30px" fxFlex="1 1 50%" #left>
+  </div>
+
+  <div fxFlexOrder.xs="0" class="pg-history-cards-timeline" fxFlex="0 0 2px" *ngIf="anchors.length>0">
+    <div class="pg-history-cards-timeline anchor" *ngFor="let anchor of anchors" [style.top.px]="anchor.top"></div>
+  </div>
+
+  <div class="pg-history-cards-right" fxLayout="column" fxLayoutGap="30px" fxFlex="1 1 50%" fxFlex.xs="1 1 auto" #right>
+  </div>
+
+</div>

@@ -4,17 +4,20 @@
 @mixin admin-layout-theme($theme) {
   @include side-nav-theme($theme);
   $bg: map-get($theme, background);
+  $fg: map-get($theme, foreground);
 
   pg-admin-layout {
     width: 100%;
     height: 100%;
     display: flex;
+    background-color: mat-color($bg, background);
   }
 
   .pg-admin-layout-side-nav-container {
     @include mat-elevation(4);
     z-index: 500;
     background-color: mat-color($bg, card);
+    color: mat-color($fg, base);
     overflow: hidden;
   }
   .pg-admin-layout-push-over {
