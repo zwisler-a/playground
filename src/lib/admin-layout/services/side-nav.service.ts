@@ -1,6 +1,5 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {ObservableMedia} from "@angular/flex-layout";
-import {MediaChange} from "@angular/flex-layout/typings/media-query/media-change";
 
 
 /**
@@ -13,7 +12,7 @@ export class SideNavService {
   readonly onStateChange = new EventEmitter<"big" | "small" | "hidden">();
 
   constructor(private media: ObservableMedia) {
-    this.media.subscribe((state: MediaChange) => {
+    this.media.subscribe((state: any) => {
       this.determineState(state.mqAlias);
     });
   }
